@@ -1,5 +1,8 @@
-#chart-container,
-#chart-container2{
+#chart-container{
     width: 720px;
     height: auto;
+}
+
+#chart-container2{
+    width: 360px;
 }

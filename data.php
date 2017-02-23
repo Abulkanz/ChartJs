@@ -28,20 +28,18 @@ function executeR($logIn, $sql, $arg = null) {
     return $resReque;
 }
 
-$cnx = getBD();
+    $cnx = getBD();
+    $req = "SELECT nomEspece, ROUND(AVG(taille), 2) 'tMoyenne' 
+            FROM animaux, especes
+            WHERE animaux.idEspece = especes.idEspece 
+            GROUP BY 1";
 
-$req = "SELECT nomEspece, ROUND(AVG(taille), 2) 'tMoyenne' 
-        FROM animaux, especes
-        WHERE animaux.idEspece = especes.idEspece 
-        GROUP BY 1";
+    $reqChart = executeR($cnx, $req);
 
-$reqChart = executeR($cnx, $req);
-
-
-
-foreach ($reqChart as $ligne){
-    $espece[] = $ligne;
-};
+    foreach ($reqChart as $ligne) {
+        $espece[] = $ligne;
+    }
 
 print json_encode($espece);
+
 
