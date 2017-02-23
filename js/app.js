@@ -7,7 +7,7 @@ $(document).ready(function () {
                 var espece = [];
                 var taille = [];
 
-                for(var i = 0; i<11; i++) {
+                for(var i = 0; i<=11; i++) {
                     espece.push(data[i].nomEspece);
                     taille.push(data[i].tMoyenne);
             }
@@ -35,5 +35,7 @@ $(document).ready(function () {
             console.log(data);
         }
     });
+    
+    
 });
 
